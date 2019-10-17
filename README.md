@@ -8,9 +8,9 @@ A react functional component to display a simple WebGL shader.
 
 ## Introduction
 
-Sometimes you want a simple way of displaying a WebGL Shader within your React project. This component does exactly that! You can easily specify the size, shaders and optional uniforms to pass into the shader.
+Sometimes you want a simple way of displaying a WebGL Shader within your React project without a large 3D library like three.js, Alfrid or Babylon.js. This component does exactly that! You can easily specify the size, shaders and optional uniforms to pass into the shader.
 
-This project is essentially a wrapper around [glslCanvas](https://github.com/patriciogonzalezvivo/glslCanvas/) that allows it to be used within your React projects.
+This project is essentially a wrapper around [glslCanvas](https://github.com/patriciogonzalezvivo/glslCanvas/) that allows it to be used within your React projects. Please check out their documentation to see whats happening under the hood.
 
 ## Installation
 
@@ -64,7 +64,7 @@ const FunkyView = () => {
   // Uniforms to pass into the shader
   const uniforms = {
     u_color_bg: [11, 12, 33],
-    u_color_line: [205, 255, 0],
+    u_color_noise: [205, 255, 0],
     u_noise_amount: 0.5
   };
 
