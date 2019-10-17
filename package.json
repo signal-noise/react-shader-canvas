@@ -1,6 +1,6 @@
 {
   "name": "@signal-noise/shader-canvas",
-  "description": "A react functional component to display a simple WebGL shader.",
+  "description": "A React functional component to display a simple WebGL shader.",
   "version": "0.0.1",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
@@ -25,16 +25,17 @@
     "release": "np",
     "lint": "npm-run-all --parallel lint:*",
     "lint:js": "eslint \"**/*.js\"",
+    "lint:import": "import-sort -l 'src/**/*.{js,jsx}'",
     "lint:format": "prettier \"**/*.{js,md}\" --check",
     "fix": "npm-run-all --sequential fix:*",
     "fix:js": "eslint \"**/*.js\" --fix",
+    "fix:import": "import-sort --write 'src/**/*.{js,jsx}'",
     "fix:format": "prettier \"**/*.{js,md}\" --write"
   },
   "author": "John Chipps-Harding (john@signal-noise.com)",
   "license": "MIT",
   "peerDependencies": {
-    "react": "^16.8.0",
-    "prop-types": "^15.7.2"
+    "react": "^16.8.0"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.6.3",

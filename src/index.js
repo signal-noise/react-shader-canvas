@@ -1,16 +1,8 @@
-// const React = require("react");
-// const PropTypes = require("prop-types");
-// const glslCanvas = require("glslCanvas");
-
-// const { getDevicePixelRatio, isWebGlSupported } = require("./utils");
-
-import React, { useEffect, useRef } from "react";
-import { getDevicePixelRatio, isWebGlSupported } from "./utils";
-
-import PropTypes from "prop-types";
 import glslCanvas from "glslCanvas";
+import PropTypes from "prop-types";
+import React, { useEffect, useRef } from "react";
 
-// const { useEffect, useRef } = React;
+import { getDevicePixelRatio, isWebGlSupported } from "./utils";
 
 const webGlSupported = isWebGlSupported();
 
