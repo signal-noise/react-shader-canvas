@@ -4,11 +4,11 @@
 [![Actions Status][ci-image]][ci-url]
 [![PR Welcome][npm-downloads-image]][npm-downloads-url]
 
-A react functional component to display a simple WebGL shader.
+A react component to display and control a WebGL shader.
 
 ## Introduction
 
-Sometimes you want a simple way of displaying a WebGL Shader within your React project without a large 3D library like three.js, Alfrid or Babylon.js. This component does exactly that! You can easily specify the size, shaders and optional uniforms to pass into the shader.
+Sometimes you want a simple way of displaying a WebGL Shader within your React project without a large 3D library like three.js, Alfrid or Babylon.js. This component does exactly that! You can easily specify the size, shaders and optional [uniforms](https://jameshfisher.com/2017/10/03/webgl-fragment-shader-uniform/) to pass into the shader.
 
 This project is essentially a wrapper around [glslCanvas](https://github.com/patriciogonzalezvivo/glslCanvas/) that allows it to be used within your React projects. Please check out their documentation to see whats happening under the hood.
 
@@ -28,10 +28,7 @@ Here is the most minimal example...
 import React from 'react';
 import ShaderCanvas from "@signal-noise/shader-canvas";
 
-import fragShader from "./solid_red.frag";
-
-const FunkyView = () => {
-  const shader = `
+const shader = `
     precision mediump float;
     uniform vec4 uColor;
     void main() {
@@ -39,14 +36,10 @@ const FunkyView = () => {
     }
   `;
 
-  return (
-    <ShaderCanvas
-      width={320}
-      height={240}
-      fragShader={shader}
-    />
-  );
-};
+const RedView = () => (
+  <ShaderCanvas width={320} height={240} fragShader={shader} />
+);
+
 ```
 
 You can optionally pass in a vertex shader, uniforms and a supersample value.
@@ -89,6 +82,17 @@ const FunkyView = () => {
 - `vertShader` : Optional - String - The vertex shader to use.
 - `uniforms` : Optional - Object - An object containing vec2, vec3 and float key value pairs.
 - `superSample` : Optional - Number - A value to supersample by, creating a smoother image.
+
+## Notes
+
+### Super Sampling
+You have the option of super sampling as a method to antialias the final output. A value of `2` is generally a good idea. This quadruples the processing requirements.
+
+### Retina
+The rendered output matches the devices pixel density automatically.
+
+### Mouse
+A vec2 uniform `u_mouse` is passed into the shader.
 
 [npm-image]: https://img.shields.io/npm/v/@signal-noise/shader-canvas.svg?style=flat-square&logo=react
 [npm-url]: https://npmjs.org/package/@signal-noise/shader-canvas
