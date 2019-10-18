@@ -86,12 +86,15 @@ const FunkyView = () => {
 ## Notes
 
 ### Super Sampling
+
 You have the option of super sampling as a method to antialias the final output. A value of `2` is generally a good idea. This quadruples the processing requirements.
 
 ### Retina
+
 The rendered output matches the devices pixel density automatically.
 
 ### Mouse
+
 A vec2 uniform `u_mouse` is passed into the shader.
 
 [npm-image]: https://img.shields.io/npm/v/@signal-noise/shader-canvas.svg?style=flat-square&logo=react
