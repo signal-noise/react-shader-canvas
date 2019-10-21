@@ -15,8 +15,8 @@ e.g. "A new input argument that accepts..."
 
 <!--
 Before posting, please check that the feature hasn't already been:
-1. added in the next release (https://github.com/signal-noise/shader-canvas/blob/master/CHANGELOG.md)
-2. discussed previously (https://github.com/ignal-noise/shader-canvas/search)
+1. added in the next release (https://github.com/signal-noise/react-shader-canvas/blob/master/CHANGELOG.md)
+2. discussed previously (https://github.com/ignal-noise/react-shader-canvas/search)
 -->
 
 <!--

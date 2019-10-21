@@ -4,7 +4,7 @@ I'm really happy that you're interested in helping out with this little project.
 
 As this is very early days for the project there's not a lot in the way of
 resources, but please check out the [documentation](./README.md), and also the
-[list of issues](https://github.com/signal-noise/shader-canvas/issues).
+[list of issues](https://github.com/signal-noise/react-shader-canvas/issues).
 
 Please submit an issue if you need help with anything.
 
@@ -20,7 +20,7 @@ pass. Testing is automated using GitHub Actions CI.
 ## Submitting changes
 
 Please send a
-[GitHub Pull Request to shader-canvas](https://github.com/signal-noise/shader-canvas/pull/new/master)
+[GitHub Pull Request to react-shader-canvas](https://github.com/signal-noise/react-shader-canvas/pull/new/master)
 with a clear list of what you've done (read more about
 [pull requests](https://help.github.com/en/articles/about-pull-requests)). When you send a pull
 request, please make sure you've covered off all the points in the template.
@@ -43,6 +43,6 @@ In effect this means:
 - Your Pull Request title and description become very important; they are the
   history of the master branch and explain all the changes.
 - You ought to be able to find any previous version easily using GitHub tabs, or
-  [Releases](https://github.com/signal-noise/shader-canvas/releases)
+  [Releases](https://github.com/signal-noise/react-shader-canvas/releases)
 
 Thanks, John Chipps-Harding

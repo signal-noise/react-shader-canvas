@@ -1,4 +1,4 @@
-# shader-canvas
+# react-shader-canvas
 
 [![NPM version][npm-image]][npm-url]
 [![Actions Status][ci-image]][ci-url]
@@ -17,7 +17,7 @@ This project is essentially a wrapper around [glslCanvas](https://github.com/pat
 Install this package with `npm`.
 
 ```bash
-npm i @signal-noise/shader-canvas
+npm i @signal-noise/react-shader-canvas
 ```
 
 ## Usage
@@ -26,7 +26,7 @@ Here is the most minimal example...
 
 ```JSX
 import React from 'react';
-import ShaderCanvas from "@signal-noise/shader-canvas";
+import ShaderCanvas from "@signal-noise/react-shader-canvas";
 
 const shader = `
     precision mediump float;
@@ -46,7 +46,7 @@ You can optionally pass in a vertex shader, uniforms and a supersample value.
 
 ```JSX
 import React from 'react';
-import ShaderCanvas from "@signal-noise/shader-canvas";
+import ShaderCanvas from "@signal-noise/react-shader-canvas";
 
 // Using the webpack loader "shader-loader"
 import fragShader from "./noise.frag";
@@ -97,9 +97,9 @@ The rendered output matches the devices pixel density automatically.
 
 A vec2 uniform `u_mouse` is passed into the shader.
 
-[npm-image]: https://img.shields.io/npm/v/@signal-noise/shader-canvas.svg?style=flat-square&logo=react
-[npm-url]: https://npmjs.org/package/@signal-noise/shader-canvas
-[npm-downloads-image]: https://img.shields.io/npm/dm/@signal-noise/shader-canvas.svg
-[npm-downloads-url]: https://npmcharts.com/compare/@signal-noise/shader-canvas?minimal=true
-[ci-image]: https://github.com/signal-noise/shader-canvas/workflows/node-ci/badge.svg
-[ci-url]: https://github.com/signal-noise/shader-canvas/actions
+[npm-image]: https://img.shields.io/npm/v/@signal-noise/react-shader-canvas.svg?style=flat-square&logo=react
+[npm-url]: https://npmjs.org/package/@signal-noise/react-shader-canvas
+[npm-downloads-image]: https://img.shields.io/npm/dm/@signal-noise/react-shader-canvas.svg
+[npm-downloads-url]: https://npmcharts.com/compare/@signal-noise/react-shader-canvas?minimal=true
+[ci-image]: https://github.com/signal-noise/react-shader-canvas/workflows/node-ci/badge.svg
+[ci-url]: https://github.com/signal-noise/react-shader-canvas/actions

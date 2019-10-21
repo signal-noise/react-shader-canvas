@@ -9,11 +9,11 @@ about: "Is something not working as you expect?"
 
 e.g. "My shader does not load..."
 
-> Which version of shader-canvas are you using?
+> Which version of react-shader-canvas are you using?
 
 e.g. `0.1.0`
 
-> What version of React are you using shader-canvas within?
+> What version of React are you using react-shader-canvas within?
 
 e.g. `16.10.0`
 
@@ -27,8 +27,8 @@ e.g. "Just a black screen and nothing rendered."
 
 <!--
 Before posting, please check that the bug hasn't already been:
-1. fixed in the next release (https://github.com/signal-noise/shader-canvas/blob/master/CHANGELOG.md)
-2. discussed previously (https://github.com/signal-noise/shader-canvas/search)
+1. fixed in the next release (https://github.com/signal-noise/react-shader-canvas/blob/master/CHANGELOG.md)
+2. discussed previously (https://github.com/signal-noise/react-shader-canvas/search)
 -->
 
 <!--
