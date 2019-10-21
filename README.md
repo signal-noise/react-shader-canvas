@@ -29,12 +29,12 @@ import React from 'react';
 import ShaderCanvas from "@signal-noise/react-shader-canvas";
 
 const shader = `
-    precision mediump float;
-    uniform vec4 uColor;
-    void main() {
-      gl_FragColor = vec4(1, 0, 0, 1);
-    }
-  `;
+  precision mediump float;
+  uniform vec4 uColor;
+  void main() {
+    gl_FragColor = vec4(1, 0, 0, 1);
+  }
+`;
 
 const RedView = () => (
   <ShaderCanvas width={320} height={240} fragShader={shader} />
