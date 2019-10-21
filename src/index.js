@@ -4,8 +4,6 @@ import React, { useEffect, useRef } from "react";
 
 import { getDevicePixelRatio, isWebGlSupported } from "./utils";
 
-const webGlSupported = isWebGlSupported();
-
 const ShaderCanvas = ({
   width,
   height,
@@ -17,33 +15,38 @@ const ShaderCanvas = ({
 }) => {
   const canvas = useRef();
   const sandbox = useRef();
+  const webGlSupported = isWebGlSupported();
+  const pixelDensity = getDevicePixelRatio();
 
-  // Spawn the glsl canvas
+  // Spawn the glslCanvas
   useEffect(() => {
     if (!webGlSupported && glslCanvas) return;
     sandbox.current = new glslCanvas(canvas.current);
-  }, []);
+  }, [webGlSupported]);
 
   // Load the shader if it changes
   useEffect(() => {
     if (!webGlSupported && glslCanvas) return;
     sandbox.current.load(fragShader, vertShader);
-  }, [fragShader, vertShader]);
+  }, [webGlSupported, fragShader, vertShader]);
 
   //Set the uniforms if the shader or uniforms change
   useEffect(() => {
     if (!webGlSupported && glslCanvas) return;
 
     // Set the pixel size based on supersample
-    sandbox.current.realToCSSPixels =
-      (window.devicePixelRatio || 1) * superSample;
+    sandbox.current.realToCSSPixels = pixelDensity * superSample;
 
     if (!uniforms) return;
     sandbox.current.setUniforms(uniforms);
-  }, [fragShader, vertShader, uniforms, superSample]);
-
-  // Scale canvas for retina
-  const pixelDensity = getDevicePixelRatio();
+  }, [
+    pixelDensity,
+    webGlSupported,
+    fragShader,
+    vertShader,
+    uniforms,
+    superSample
+  ]);
 
   return (
     <canvas
