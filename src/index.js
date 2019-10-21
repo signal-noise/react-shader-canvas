@@ -39,23 +39,7 @@ const ShaderCanvas = ({
       (window.devicePixelRatio || 1) * superSample;
 
     if (!uniforms) return;
-
-    Object.keys(uniforms).forEach(key => {
-      const value = uniforms[key];
-      // The uniform is an array
-      if (Array.isArray(value)) {
-        if (value.length === 2) {
-          // Setting s vec2
-          sandbox.current.setUniform(key, value[0], value[1]);
-        } else if (value.length === 3) {
-          // Setting a vec3
-          sandbox.current.setUniform(key, value[0], value[1], value[2]);
-        }
-      } else {
-        // Every other type of single argument uniform just pass through
-        sandbox.current.setUniform(key, value);
-      }
-    });
+    sandbox.current.setUniforms(uniforms);
   }, [fragShader, vertShader, uniforms, superSample]);
 
   // Scale canvas for retina
