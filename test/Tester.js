@@ -25,11 +25,13 @@ const Tester = () => {
 
   const [width, setWidth] = useState(320);
   const [height, setHeight] = useState(240);
+  const [superSample, setSuperSample] = useState(1);
 
   window.setShader = setShader;
   window.setUniforms = setUniforms;
   window.setWidth = setWidth;
   window.setHeight = setHeight;
+  window.setSuperSample = setSuperSample;
 
   return (
     <ShaderCanvas
@@ -37,6 +39,7 @@ const Tester = () => {
       height={height}
       fragShader={shader}
       uniforms={uniforms}
+      superSample={superSample}
     />
   );
 };

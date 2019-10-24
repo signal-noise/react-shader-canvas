@@ -42,4 +42,28 @@ describe("displays react-shader-canvas", () => {
     const image = await page.screenshot();
     expect(image).toMatchImageSnapshot();
   });
+
+  it("can super sample", async () => {
+    await page.evaluate(() => {
+      window.setShader(`
+        precision mediump float;
+        uniform vec2 u_resolution;
+        void main() {
+          vec2 uv = gl_FragCoord.xy / u_resolution.xy;
+          vec3 u_color_1 = vec3(1.0, 0.0, 0.0);
+          vec3 u_color_2 = vec3(0.0, 1.0, 0.0);
+          vec3 color= mix(u_color_1, u_color_2, step(uv.x+uv.y, 0.5));
+          gl_FragColor = vec4(color, 1);
+        }
+      `);
+    });
+    const image = await page.screenshot();
+    expect(image).toMatchImageSnapshot();
+
+    await page.evaluate(() => {
+      window.setSuperSample(2);
+    });
+    const image2 = await page.screenshot();
+    expect(image2).toMatchImageSnapshot();
+  });
 });
