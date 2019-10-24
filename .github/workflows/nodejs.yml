@@ -9,7 +9,7 @@ jobs:
     strategy:
       matrix:
         node-version: [10, 12]
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        os: [ubuntu-latest, macos-latest]
 
     steps:
       - uses: actions/checkout@v1
@@ -22,9 +22,10 @@ jobs:
       - name: Install latest npm
         run: npm install --global npm@latest
 
-      - name: npm install, lint
+      - name: npm install, lint and test
         run: |
           npm install
           npm run lint
+          npm test -- --ci
         env:
           CI: true
