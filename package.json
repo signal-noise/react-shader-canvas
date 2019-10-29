@@ -27,11 +27,11 @@
     "release": "np",
     "lint": "npm-run-all --parallel lint:*",
     "lint:js": "eslint \"**/*.js\"",
-    "lint:import": "import-sort -l 'src/**/*.{js,jsx}'",
+    "lint:import": "import-sort -l \"src/**/*.{js,jsx}\"",
     "lint:format": "prettier \"**/*.{js,md}\" --check",
     "fix": "npm-run-all --sequential fix:*",
     "fix:js": "eslint \"**/*.js\" --fix",
-    "fix:import": "import-sort --write 'src/**/*.{js,jsx}'",
+    "fix:import": "import-sort --write \"src/**/*.{js,jsx}\"",
     "fix:format": "prettier \"**/*.{js,md}\" --write"
   },
   "author": "John Chipps-Harding (john@signal-noise.com)",
