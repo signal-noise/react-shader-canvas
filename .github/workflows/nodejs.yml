@@ -2,6 +2,9 @@ name: node-ci
 
 on: [push]
 
+env:
+  CI: true
+
 jobs:
   test:
     name: Test on node ${{ matrix.node-version }} and ${{ matrix.os }}
@@ -9,7 +12,7 @@ jobs:
     strategy:
       matrix:
         node-version: [10, 12]
-        os: [ubuntu-latest, macos-latest]
+        os: [ubuntu-latest, macos-latest, windows-latest]
 
     steps:
       - uses: actions/checkout@v1
@@ -22,10 +25,18 @@ jobs:
       - name: Install latest npm
         run: npm install --global npm@latest
 
-      - name: npm install, lint and test
+      - name: npm install and lint
         run: |
           npm install
           npm run lint
-          npm test -- --ci
-        env:
-          CI: true
+
+      - name: Test (Windows)
+        if: matrix.os == 'windows-latest'
+        run: |
+          cd ..
+          cd D:\a\react-shader-canvas\react-shader-canvas
+          npm test
+
+      - name: Test (Unix)
+        if: matrix.os != 'windows-latest'
+        run: npm test
