@@ -24,42 +24,6 @@ function _extends() {
   return _extends.apply(this, arguments);
 }
 
-function _objectWithoutPropertiesLoose(source, excluded) {
-  if (source == null) return {};
-  var target = {};
-  var sourceKeys = Object.keys(source);
-  var key, i;
-
-  for (i = 0; i < sourceKeys.length; i++) {
-    key = sourceKeys[i];
-    if (excluded.indexOf(key) >= 0) continue;
-    target[key] = source[key];
-  }
-
-  return target;
-}
-
-function _objectWithoutProperties(source, excluded) {
-  if (source == null) return {};
-
-  var target = _objectWithoutPropertiesLoose(source, excluded);
-
-  var key, i;
-
-  if (Object.getOwnPropertySymbols) {
-    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
-
-    for (i = 0; i < sourceSymbolKeys.length; i++) {
-      key = sourceSymbolKeys[i];
-      if (excluded.indexOf(key) >= 0) continue;
-      if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
-      target[key] = source[key];
-    }
-  }
-
-  return target;
-}
-
 var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
 var win;
@@ -2967,40 +2931,40 @@ window.addEventListener('load', function () {
     loadAllGlslCanvas();
 });
 
-var getDevicePixelRatio = function getDevicePixelRatio() {
+const getDevicePixelRatio = () => {
   if (typeof document === "undefined") return 1;
   return devicePixelRatio || 1;
 };
-var isWebGlSupported = function isWebGlSupported() {
+const isWebGlSupported = () => {
   if (typeof document === "undefined") return false;
   return !!document.createElement("canvas").getContext("webgl");
 };
 
-var ShaderCanvas = function ShaderCanvas(_ref) {
-  var width = _ref.width,
-      height = _ref.height,
-      fragShader = _ref.fragShader,
-      vertShader = _ref.vertShader,
-      uniforms = _ref.uniforms,
-      superSample = _ref.superSample,
-      props = _objectWithoutProperties(_ref, ["width", "height", "fragShader", "vertShader", "uniforms", "superSample"]);
+const ShaderCanvas = ({
+  width,
+  height,
+  fragShader,
+  vertShader,
+  uniforms,
+  superSample,
+  ...props
+}) => {
+  const canvas = React.useRef();
+  const sandbox = React.useRef();
+  const webGlSupported = isWebGlSupported();
+  const pixelDensity = getDevicePixelRatio(); // Spawn the glslCanvas
 
-  var canvas = React.useRef();
-  var sandbox = React.useRef();
-  var webGlSupported = isWebGlSupported();
-  var pixelDensity = getDevicePixelRatio(); // Spawn the glslCanvas
-
-  React.useEffect(function () {
+  React.useEffect(() => {
     if (!webGlSupported && GlslCanvas) return;
     sandbox.current = new GlslCanvas(canvas.current);
   }, [webGlSupported]); // Load the shader if it changes
 
-  React.useEffect(function () {
+  React.useEffect(() => {
     if (!webGlSupported && GlslCanvas) return;
     sandbox.current.load(fragShader, vertShader);
   }, [webGlSupported, fragShader, vertShader]); //Set the uniforms if the shader or uniforms change
 
-  React.useEffect(function () {
+  React.useEffect(() => {
     if (!webGlSupported && GlslCanvas) return; // Set the pixel size based on supersample
 
     sandbox.current.realToCSSPixels = pixelDensity * superSample;
@@ -3012,8 +2976,8 @@ var ShaderCanvas = function ShaderCanvas(_ref) {
     width: width * pixelDensity * superSample,
     height: height * pixelDensity * superSample,
     style: {
-      width: "".concat(width, "px"),
-      height: "".concat(height, "px")
+      width: `${width}px`,
+      height: `${height}px`
     }
   }));
 };
