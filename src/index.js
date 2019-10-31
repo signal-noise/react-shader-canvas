@@ -11,6 +11,7 @@ const ShaderCanvas = ({
   vertShader,
   uniforms,
   superSample,
+  style,
   ...props
 }) => {
   const canvas = useRef();
@@ -55,6 +56,7 @@ const ShaderCanvas = ({
       width={width * pixelDensity * superSample}
       height={height * pixelDensity * superSample}
       style={{
+        ...style,
         width: `${width}px`,
         height: `${height}px`
       }}
@@ -68,7 +70,8 @@ ShaderCanvas.propTypes = {
   fragShader: PropTypes.string.isRequired,
   vertShader: PropTypes.string,
   uniforms: PropTypes.object,
-  superSample: PropTypes.number
+  superSample: PropTypes.number,
+  style: PropTypes.object
 };
 
 ShaderCanvas.defaultProps = {
