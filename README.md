@@ -8,7 +8,7 @@ A react component to display and control a WebGL shader.
 
 ## Introduction
 
-Sometimes you want a simple way of displaying a WebGL Shader within your React project without a large 3D library like three.js, Alfrid or Babylon.js. This component does exactly that! You can easily specify the size, shaders and optional [uniforms](https://jameshfisher.com/2017/10/03/webgl-fragment-shader-uniform/) to pass into the shader.
+Sometimes you want a simple way of displaying a WebGL Shader within your React project without a large 3D library like three.js, Alfrid or Babylon.js. This component does exactly that! You can very easily specify the size, shaders and optional [uniforms](https://jameshfisher.com/2017/10/03/webgl-fragment-shader-uniform/) to pass into the shader.
 
 This project is essentially a wrapper around [glslCanvas](https://github.com/patriciogonzalezvivo/glslCanvas/) that allows it to be used within your React projects. Please check out their documentation to see whats happening under the hood.
 
