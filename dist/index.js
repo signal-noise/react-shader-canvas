@@ -2931,13 +2931,19 @@ window.addEventListener('load', function () {
     loadAllGlslCanvas();
 });
 
+let supported = undefined;
+const isWebGlSupported = () => {
+  if (typeof document === "undefined") return false;
+
+  if (supported === undefined) {
+    supported = !!document.createElement("canvas").getContext("webgl");
+  }
+
+  return supported;
+};
 const getDevicePixelRatio = () => {
   if (typeof document === "undefined") return 1;
   return devicePixelRatio || 1;
-};
-const isWebGlSupported = () => {
-  if (typeof document === "undefined") return false;
-  return !!document.createElement("canvas").getContext("webgl");
 };
 
 const ShaderCanvas = ({
