@@ -71,6 +71,6 @@
     "webpack-dev-server": "^3.9.0"
   },
   "dependencies": {
-    "glslCanvas": "^0.1.7"
+    "glslCanvas": "^0.2.6"
   }
 }
